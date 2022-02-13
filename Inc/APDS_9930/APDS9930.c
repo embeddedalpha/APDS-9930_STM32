@@ -34,6 +34,28 @@ void APSD9930_Init(I2C_TypeDef *I2C)
 	I2C_Master_Write_Register(APDS9930, APDS9930_Address, APDS9930_WTIME, APDS9930_WTime_1ms);
 	I2C_Master_Write_Register(APDS9930, APDS9930_Address, APDS9930_PPULSE, 0x0E);
 
+	temp = 0;
+	temp = APDS9930_CNTRL_LED_Drive_STR_100mA | APDS9930_CNTRL_PDIODE_CH1 | APDS9930_CNTRL_AGAIN_1X | APDS9930_CNTRL_PGAIN_1X;
 
+	I2C_Master_Write_Register(APDS9930, APDS9930_Address, APDS9930_CONTROL, temp);
+	temp = 0;
+	temp = APDS9930_ENABLE_PON | APDS9930_ENABLE_AEN | APDS9930_ENABLE_PEN | APDS9930_ENABLE_WEN;
+	I2C_Master_Write_Register(APDS9930, APDS9930_Address, APDS9930_ENABLE, temp);
 
+	Delay_ms(12);
 }
+
+int APDS9930_ALS_Channel_0(void)
+{
+	int temp;
+	temp = I2C_Master_Read_Register(APDS9930, APDS9930_Address, APDS9930_Ch0DATAH) | I2C_Master_Read_Register(APDS9930, APDS9930_Address, APDS9930_Ch0DATAL);
+	return temp;
+}
+
+int APDS9930_ALS_Channel_1(void)
+{
+	int temp;
+	temp = I2C_Master_Read_Register(APDS9930, APDS9930_Address, APDS9930_Ch1DATAH) | I2C_Master_Read_Register(APDS9930, APDS9930_Address, APDS9930_Ch1DATAL);
+	return temp;
+}
+
