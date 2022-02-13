@@ -34,36 +34,19 @@
 #define APDS9930_PDATAH		0x19
 #define APDS9930_POFFSET	0x1E
 
+#define APDS9930_SAI		1<<6
+#define APDS9930_PIEN		1<<5
+#define APDS9930_AIEN		1<<4
+#define APDS9930_WEN		1<<3
+#define APDS9930_PEN		1<<2
+#define APDS9930_AEN		1<<1
+#define APDS9930_PON		1<<0
 
-
-typedef enum {
-	APDSENABLE = 0x00,
-	 ATIME,				//Enable of states and interrupts
-	 PTIME,				//ALS ADC time
-	 WTIME,				//Proximity ADC time
-	 AILTL_LOW,			//Wait time
-	 AILTH_HIGH,			//ALS interrupt low threshold low byte
-	 AIHTL_LOW,			//ALS interrupt low threshold hi byte
-	 AIHTL_HIGH,			//ALS interrupt hi threshold low byte
-	 PILTL_LOW,			//ALS interrupt hi threshold hi byte
-	 PILTH_HIGH,			//Proximity interrupt low threshold low byte
-	 PIHTL_LOW,			//Proximity interrupt low threshold hi byte
-	 PIHTH_HIGH,			//Proximity interrupt hi threshold low byte
-	 PERS,				//Interrupt persistence filters
-	 CONFIG,				//Configuration
-	 PPULSE,				//Proximity pulse count
-	 CONTROL,			//Gain control register
-	 ID,					//Device ID
-	 STATUS,				//Device status
-	 Ch0DATAL,			//Ch0 ADC low data register
-	 Ch0DATAH,			//Ch0 ADC high data register
-	 Ch1DATAL,			//Ch1 ADC low data register
-	 Ch1DATAH,			//Ch1 ADC high data register
-	 PDATAL,				//Proximity ADC low data register
-	 PDATAH,				//Proximity ADC high data register
-	 POFFSET,			//Proximity offset register
-}APDS9930_Registers;
-
+#define APDS9930_ATIME_CYCLES_1			1<<5
+#define APDS9930_ATIME_CYCLES_10		1<<5
+#define APDS9930_ATIME_CYCLES_37		1<<5
+#define APDS9930_ATIME_CYCLES_64		1<<5
+#define APDS9930_ATIME_CYCLES_256		1<<5
 
 typedef enum {
 	 SAI  = 1 << 6,
