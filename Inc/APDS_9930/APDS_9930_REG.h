@@ -128,5 +128,13 @@ struct APDS9930_Control_Reg{
 
 }APDS9930_Control_Reg;
 
+struct APDS9930_Status_Reg{
+	int PSAT				= 1 << 6;
+	int PINT			    = 1 << 5;
+	int AINT				= 1 << 4;
+	int PVALID				= 1 << 1;
+	int AVALID				= 1 << 0;
+}APDS9930_Status_Reg;
+
 
 #endif /* APDS_9930_APDS_9930_REG_H_ */
