@@ -109,18 +109,10 @@
 #define APDS9930_CNTRL_AGAIN_16X			0x02
 #define APDS9930_CNTRL_AGAIN_120X			0x03
 
-
-
-
-typedef enum {
-	 PSAT				= 1 << 6,
-	 PINT			    = 1 << 5,
-	 AINT				= 1 << 4,
-	 PVALID				= 1 << 1,
-	 AVALID				= 1 << 0,
-}APDS9930_Status_Reg;
-
-
-
+#define APDS9930_STATUS_REG_PSAT			1 << 6
+#define APDS9930_STATUS_REG_PINT			1 << 5
+#define APDS9930_STATUS_REG_AINT			1 << 4
+#define APDS9930_STATUS_REG_PVALID			1 << 1
+#define APDS9930_STATUS_REG_AVALID			1 << 0
 
 #endif /* APDS_9930_APDS_9930_REG_H_ */
