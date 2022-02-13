@@ -48,11 +48,11 @@
 #define APDS9930_ATIME_CYCLES_64		0xC0
 #define APDS9930_ATIME_CYCLES_256		0x00
 
-#define APDS9930_Proximity_Time_Control		0xFF
+#define APDS9930_PTIME_CYCLE_1		0xFF
 
-#define APDS9930_Wait_Time_1ms			0xFF
-#define APDS9930_Wait_Time_74ms			0xB6
-#define APDS9930_Wait_Time_256ms		0x00
+#define APDS9930_WTime_1ms			0xFF
+#define APDS9930_WTime_74ms			0xB6
+#define APDS9930_WTime_256ms		0x00
 
 #define APDS9930_P_Cycle_AlL		0x00
 #define APDS9930_P_Cycle_1			0x10
