@@ -92,29 +92,25 @@
 #define APDS9930_CONFG_WLONG		0x02
 #define APDS9930_CONFG_PDL			0x04
 
+#define APDS9930_CNTRL_LED_Drive_STR_100mA			0x00
+#define APDS9930_CNTRL_LED_Drive_STR_50mA			0x40
+#define APDS9930_CNTRL_LED_Drive_STR_25mA			0x80
+#define APDS9930_CNTRL_LED_Drive_STR_12_5mA			0xC0
+
+#define APDS9930_CNTRL_PDIODE_CH1			0x20
+
+#define APDS9930_CNTRL_PGAIN_1X			0x00
+#define APDS9930_CNTRL_PGAIN_2X			0x04
+#define APDS9930_CNTRL_PGAIN_4X			0x08
+#define APDS9930_CNTRL_PGAIN_8X			0x0C
+
+#define APDS9930_CNTRL_AGAIN_1X			0x00
+#define APDS9930_CNTRL_AGAIN_2X			0x01
+#define APDS9930_CNTRL_AGAIN_16X			0x02
+#define APDS9930_CNTRL_AGAIN_120X			0x03
 
 
 
-
-typedef enum {
-	 LED_Drive_STR_100mA			= 0b00 << 6,
-	 LED_Drive_STR_50mA			= 0b01 << 6,
-	 LED_Drive_STR_25mA			= 0b10 << 6,
-	 LED_Drive_STR_12_5mA		= 0b11 << 6,
-
-	 PDIODE_CH1 					= 0b10 << 4,
-
-	 PGAIN_1X					= 0b00 << 2,
-	 PGAIN_2X					= 0b01 << 2,
-	 PGAIN_4X					= 0b10 << 2,
-	 PGAIN_8X					= 0b11 << 2,
-
-	 AGAIN_1X					= 0b00 << 0,
-	 AGAIN_2X					= 0b01 << 0,
-	 AGAIN_16X					= 0b10 << 0,
-	 AGAIN_120X					= 0b11 << 0,
-
-}APDS9930_Control_Reg;
 
 typedef enum {
 	 PSAT				= 1 << 6,
