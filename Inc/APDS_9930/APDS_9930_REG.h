@@ -100,8 +100,33 @@ struct APDS9930_Persistence_Reg{
 	int ALS_Cycle_13  = 13 << 4;		//13 consecutive proximity values out of range
 	int ALS_Cycle_14  = 14 << 4;		//14 consecutive proximity values out of range
 	int ALS_Cycle_15  = 15 << 4;		//15 consecutive proximity values out of range
-
-
 }APDS9930_Persistence_Reg;
+
+struct APDS9930_Configuration_Reg{
+	int AGL				= 1 << 2;
+	int WLONG			= 1 << 1;
+	int PDL				= 1 << 0;
+}APDS9930_Configuration_Reg;
+
+struct APDS9930_Control_Reg{
+	int LED_Drive_STR_100mA			= 0b00 << 6;
+	int LED_Drive_STR_50mA			= 0b01 << 6;
+	int LED_Drive_STR_25mA			= 0b10 << 6;
+	int LED_Drive_STR_12_5mA		= 0b11 << 6;
+
+	int PDIODE_CH1 					= 0b10 << 4;
+
+	int PGAIN_1X					= 0b00 << 2;
+	int PGAIN_2X					= 0b01 << 2;
+	int PGAIN_4X					= 0b10 << 2;
+	int PGAIN_8X					= 0b11 << 2;
+
+	int AGAIN_1X					= 0b00 << 0;
+	int AGAIN_2X					= 0b01 << 0;
+	int AGAIN_16X					= 0b10 << 0;
+	int AGAIN_120X					= 0b11 << 0;
+
+}APDS9930_Control_Reg;
+
 
 #endif /* APDS_9930_APDS_9930_REG_H_ */
