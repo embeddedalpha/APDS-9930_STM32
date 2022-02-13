@@ -20,6 +20,7 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Inc/APDS_9930 \
 Inc/Console \
 Inc/GPIO \
 Inc/I2C \

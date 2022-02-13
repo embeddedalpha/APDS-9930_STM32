@@ -14,6 +14,7 @@ RM := rm -rf
 -include Inc/I2C/subdir.mk
 -include Inc/GPIO/subdir.mk
 -include Inc/Console/subdir.mk
+-include Inc/APDS_9930/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

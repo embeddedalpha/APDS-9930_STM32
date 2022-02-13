@@ -1,3 +1,4 @@
+"./Inc/APDS_9930/APDS9930.o"
 "./Inc/Console/Console.o"
 "./Inc/GPIO/GPIO.o"
 "./Inc/I2C/I2C.o"
