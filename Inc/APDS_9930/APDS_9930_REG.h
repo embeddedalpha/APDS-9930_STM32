@@ -8,8 +8,36 @@
 #ifndef APDS_9930_APDS_9930_REG_H_
 #define APDS_9930_APDS_9930_REG_H_
 
-typedef enum APDS9930_Registers{
-	 ENABLE = 0x00,				//Specifies register address
+#define APDS9930_ENABLE		0x00
+#define APDS9930_ATIME		0x01
+#define APDS9930_PTIME		0x02
+#define APDS9930_WTIME		0x03
+#define APDS9930_AILTL		0x04
+#define APDS9930_AILTH		0x05
+#define APDS9930_AIHTH		0x06
+#define APDS9930_AIHTL		0x07
+#define APDS9930_PILTL		0x08
+#define APDS9930_PILTH		0x09
+#define APDS9930_PIHTL		0x0A
+#define APDS9930_PIHTH		0x0B
+#define APDS9930_PERS		0x0C
+#define APDS9930_CONFIG		0x0D
+#define APDS9930_PPULSE		0x0E
+#define APDS9930_CONTROL	0x0F
+#define APDS9930_ID			0x12
+#define APDS9930_STATUS		0x13
+#define APDS9930_Ch0DATAL	0x14
+#define APDS9930_Ch0DATAH	0x15
+#define APDS9930_Ch1DATAL	0x16
+#define APDS9930_Ch1DATAH	0x17
+#define APDS9930_PDATAL		0x18
+#define APDS9930_PDATAH		0x19
+#define APDS9930_POFFSET	0x1E
+
+
+
+typedef enum {
+	APDSENABLE = 0x00,
 	 ATIME,				//Enable of states and interrupts
 	 PTIME,				//ALS ADC time
 	 WTIME,				//Proximity ADC time
@@ -37,7 +65,7 @@ typedef enum APDS9930_Registers{
 }APDS9930_Registers;
 
 
-typedef enum APDS9930_Enable_Reg{
+typedef enum {
 	 SAI  = 1 << 6,
 	 PIEN = 1 << 5,
 	 AIEN = 1 << 4,
@@ -47,25 +75,22 @@ typedef enum APDS9930_Enable_Reg{
 	 PON  = 1 << 0,
 }APDS9930_Enable_Reg;
 
-typedef enum APDS9930_ALS_Timing_Reg{
+typedef enum {
 	 Cycle_1    = 0xFF,			//2.73 ms
 	 Cycle_10   = 0xF6,			//27.3 ms
 	 Cycle_37   = 0xDB,			//101 ms
 	 Cycle_64   = 0xC0,			//175 ms
 	 Cycle_256  = 0x00,			//699 ms
-}APDS9930_Enable_Reg;
+}APDS9930_En_Reg;
 
-typedef enum APDS9930_Proximity_Timing_Reg{
-	 Cycle_1    = 0xFF,			//2.73 ms
-}APDS9930_Proximity_Timing_Reg;
 
-typedef enum APDS9930_Wait_Timing_Reg{
+typedef enum {
 	 Wall_Time_1      = 0xFF,			//2.73 ms
 	 Wall_Time_74     = 0xB6,			//202  ms
 	 Wall_Time_256    = 0x00,			//699  ms
 }APDS9930_Wait_Timing_Reg;
 
-typedef enum APDS9930_Persistence_Reg{
+typedef enum {
 	//Proximity interrupt persistence. Controls rate of proximity interrupt to the host processor
 	 P_Cycle_All = 0 << 4,			//Every proximity cycle generates an interrupt
 	 P_Cycle_1   = 1 << 4,			//1 consecutive proximity values out of range
@@ -102,13 +127,13 @@ typedef enum APDS9930_Persistence_Reg{
 	 ALS_Cycle_15  = 15 << 4,		//15 consecutive proximity values out of range
 }APDS9930_Persistence_Reg;
 
-typedef enum APDS9930_Configuration_Reg{
+typedef enum {
 	 AGL				= 1 << 2,
 	 WLONG			= 1 << 1,
 	 PDL				= 1 << 0,
 }APDS9930_Configuration_Reg;
 
-typedef enum APDS9930_Control_Reg{
+typedef enum {
 	 LED_Drive_STR_100mA			= 0b00 << 6,
 	 LED_Drive_STR_50mA			= 0b01 << 6,
 	 LED_Drive_STR_25mA			= 0b10 << 6,
@@ -128,7 +153,7 @@ typedef enum APDS9930_Control_Reg{
 
 }APDS9930_Control_Reg;
 
-typedef enum APDS9930_Status_Reg{
+typedef enum {
 	 PSAT				= 1 << 6,
 	 PINT			    = 1 << 5,
 	 AINT				= 1 << 4,
