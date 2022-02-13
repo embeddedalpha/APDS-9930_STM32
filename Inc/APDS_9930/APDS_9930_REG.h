@@ -54,74 +54,47 @@
 #define APDS9930_Wait_Time_74ms			0xB6
 #define APDS9930_Wait_Time_256ms		0x00
 
+#define APDS9930_P_Cycle_AlL		0x00
+#define APDS9930_P_Cycle_1			0x10
+#define APDS9930_P_Cycle_2			0x20
+#define APDS9930_P_Cycle_3			0x30
+#define APDS9930_P_Cycle_4			0x40
+#define APDS9930_P_Cycle_5			0x50
+#define APDS9930_P_Cycle_6			0x60
+#define APDS9930_P_Cycle_7			0x70
+#define APDS9930_P_Cycle_8			0x80
+#define APDS9930_P_Cycle_9			0x90
+#define APDS9930_P_Cycle_10			0xA0
+#define APDS9930_P_Cycle_11			0xB0
+#define APDS9930_P_Cycle_12			0xC0
+#define APDS9930_P_Cycle_13			0xD0
+#define APDS9930_P_Cycle_14			0xE0
+#define APDS9930_P_Cycle_15			0xF0
 
-typedef enum {
-	 SAI  = 1 << 6,
-	 PIEN = 1 << 5,
-	 AIEN = 1 << 4,
-	 WEN  = 1 << 3,
-	 PEN  = 1 << 2,
-	 AEN  = 1 << 1,
-	 PON  = 1 << 0,
-}APDS9930_Enable_Reg;
+#define APDS9930_ALS_Cycle_All		0x00
+#define APDS9930_ALS_Cycle_1		0x01
+#define APDS9930_ALS_Cycle_2		0x02
+#define APDS9930_ALS_Cycle_3		0x03
+#define APDS9930_ALS_Cycle_4		0x04
+#define APDS9930_ALS_Cycle_5		0x05
+#define APDS9930_ALS_Cycle_6		0x06
+#define APDS9930_ALS_Cycle_7		0x07
+#define APDS9930_ALS_Cycle_8		0x08
+#define APDS9930_ALS_Cycle_9		0x09
+#define APDS9930_ALS_Cycle_10		0x0A
+#define APDS9930_ALS_Cycle_11		0x0B
+#define APDS9930_ALS_Cycle_12		0x0C
+#define APDS9930_ALS_Cycle_13		0x0D
+#define APDS9930_ALS_Cycle_14		0x0E
+#define APDS9930_ALS_Cycle_15		0x0F
 
-typedef enum {
-	 Cycle_1    = 0xFF,			//2.73 ms
-	 Cycle_10   = 0xF6,			//27.3 ms
-	 Cycle_37   = 0xDB,			//101 ms
-	 Cycle_64   = 0xC0,			//175 ms
-	 Cycle_256  = 0x00,			//699 ms
-}APDS9930_En_Reg;
+#define APDS9930_CONFG_AGL			0x00
+#define APDS9930_CONFG_WLONG		0x02
+#define APDS9930_CONFG_PDL			0x04
 
 
-typedef enum {
-	 Wall_Time_1      = 0xFF,			//2.73 ms
-	 Wall_Time_74     = 0xB6,			//202  ms
-	 Wall_Time_256    = 0x00,			//699  ms
-}APDS9930_Wait_Timing_Reg;
 
-typedef enum {
-	//Proximity interrupt persistence. Controls rate of proximity interrupt to the host processor
-	 P_Cycle_All = 0 << 4,			//Every proximity cycle generates an interrupt
-	 P_Cycle_1   = 1 << 4,			//1 consecutive proximity values out of range
-	 P_Cycle_2   = 2 << 4,			//2 consecutive proximity values out of range
-	 P_Cycle_3   = 3 << 4,			//3 consecutive proximity values out of range
-	 P_Cycle_4   = 4 << 4,			//4 consecutive proximity values out of range
-	 P_Cycle_5   = 5 << 4,			//5 consecutive proximity values out of range
-	 P_Cycle_6   = 6 << 4,			//6 consecutive proximity values out of range
-	 P_Cycle_7   = 7 << 4,			//7 consecutive proximity values out of range
-	 P_Cycle_8   = 8 << 4,			//8 consecutive proximity values out of range
-	 P_Cycle_9   = 9 << 4,			//9 consecutive proximity values out of range
-	 P_Cycle_10  = 10 << 4,			//10 consecutive proximity values out of range
-	 P_Cycle_11  = 11 << 4,			//11 consecutive proximity values out of range
-	 P_Cycle_12  = 12 << 4,			//12 consecutive proximity values out of range
-	 P_Cycle_13  = 13 << 4,			//13 consecutive proximity values out of range
-	 P_Cycle_14  = 14 << 4,			//14 consecutive proximity values out of range
-	 P_Cycle_15  = 15 << 4,			//15 consecutive proximity values out of range
-	//Interrupt persistence. Controls rate of interrupt to the host processor
-	 ALS_Cycle_All = 0 << 4,			//Every proximity cycle generates an interrupt
-	 ALS_Cycle_1   = 1 << 4,			//1 consecutive proximity values out of range
-	 ALS_Cycle_2   = 2 << 4,			//2 consecutive proximity values out of range
-	 ALS_Cycle_3   = 3 << 4,			//3 consecutive proximity values out of range
-	 ALS_Cycle_4   = 4 << 4,			//4 consecutive proximity values out of range
-	 ALS_Cycle_5   = 5 << 4,			//5 consecutive proximity values out of range
-	 ALS_Cycle_6   = 6 << 4,			//6 consecutive proximity values out of range
-	 ALS_Cycle_7   = 7 << 4,			//7 consecutive proximity values out of range
-	 ALS_Cycle_8   = 8 << 4,			//8 consecutive proximity values out of range
-	 ALS_Cycle_9   = 9 << 4,			//9 consecutive proximity values out of range
-	 ALS_Cycle_10  = 10 << 4,		//10 consecutive proximity values out of range
-	 ALS_Cycle_11  = 11 << 4,		//11 consecutive proximity values out of range
-	 ALS_Cycle_12  = 12 << 4,		//12 consecutive proximity values out of range
-	 ALS_Cycle_13  = 13 << 4,		//13 consecutive proximity values out of range
-	 ALS_Cycle_14  = 14 << 4,		//14 consecutive proximity values out of range
-	 ALS_Cycle_15  = 15 << 4,		//15 consecutive proximity values out of range
-}APDS9930_Persistence_Reg;
 
-typedef enum {
-	 AGL				= 1 << 2,
-	 WLONG			= 1 << 1,
-	 PDL				= 1 << 0,
-}APDS9930_Configuration_Reg;
 
 typedef enum {
 	 LED_Drive_STR_100mA			= 0b00 << 6,
