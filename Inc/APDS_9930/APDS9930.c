@@ -14,7 +14,7 @@ void APSD9930_Init(I2C_TypeDef *I2C)
 	APDS9930.mode = I2C_Fast_Mode;
 	I2C_Master_Init(APDS9930);
 
-	int temp = I2C_Master_Read_Register(APDS9930, APDS9930_Address, ID);
+	int temp = I2C_Master_Read_Register(APDS9930, APDS9930_Address, APDS9930_ID);
 	if(temp == 0x39)
 	{
 #if __APDS9930_DEBUG__
