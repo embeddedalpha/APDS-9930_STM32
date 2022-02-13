@@ -42,11 +42,18 @@
 #define APDS9930_AEN		1<<1
 #define APDS9930_PON		1<<0
 
-#define APDS9930_ATIME_CYCLES_1			1<<5
-#define APDS9930_ATIME_CYCLES_10		1<<5
-#define APDS9930_ATIME_CYCLES_37		1<<5
-#define APDS9930_ATIME_CYCLES_64		1<<5
-#define APDS9930_ATIME_CYCLES_256		1<<5
+#define APDS9930_ATIME_CYCLES_1			0xFF
+#define APDS9930_ATIME_CYCLES_10		0xF6
+#define APDS9930_ATIME_CYCLES_37		0xDB
+#define APDS9930_ATIME_CYCLES_64		0xC0
+#define APDS9930_ATIME_CYCLES_256		0x00
+
+#define APDS9930_Proximity_Time_Control		0xFF
+
+#define APDS9930_Wait_Time_1ms			0xFF
+#define APDS9930_Wait_Time_74ms			0xB6
+#define APDS9930_Wait_Time_256ms		0x00
+
 
 typedef enum {
 	 SAI  = 1 << 6,
