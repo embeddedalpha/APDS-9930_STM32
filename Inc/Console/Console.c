@@ -67,39 +67,36 @@ for(int i = 0; i < 100; i++)
 	for(int i = 0; i< strlen(buff); i++)
 	{
 		port -> DR = buff[i];
-//		port -> CR1 |= USART_CR1_SBK;
 		while (!(port->SR & USART_SR_TXE));
 	}
 
-//	#endif
 }
 
-  int scanConsole(char *msg,...)
+
+ static char get_character()
+ {
+	while (!(USART1->SR & USART_SR_RXNE));
+	return USART1 -> DR;
+ }
+
+
+
+ int scanConsole(USART_TypeDef *port, char *msg, int len)
 {
-	int c;
-	char buff[10000];
-
-	va_list args;
-	va_start(args, msg);
-	vscanf(buff,args);
-	for(int i = 0; i<= strlen(buff); i++)
-	{
-//		c = UXR();
-	}
-	va_end(args);
-	return c;
+	 int buffer_len = 100;
+	 char *t = s;
+	 char c;
+	 *t = '\0';
+	 while((c = get_character()) != '\n')
+	 {
+		 *t = c;
+		 printConsole(port, c);
+		 if((t-s)<len)
+		 {
+			 t++;
+		 }
+		 *t = '\0';
+	 }
+	 return t - s;
 }
 
-  char * Console_Return(char *s)
-{
-	int ch;
-	char *p = s;
-
-	while( (ch = USART1 -> DR) != '\n' && ch != EOF)
-	{
-		*s = (char)ch;
-		s++;
-	}
-	*s = '\0';
-	return p;
-}

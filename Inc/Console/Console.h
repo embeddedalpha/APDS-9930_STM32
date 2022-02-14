@@ -12,10 +12,9 @@
 #include "GPIO/GPIO.h"
 
 
-  void Console_Init(USART_TypeDef *port,int32_t baudrate);
-  void printConsole(USART_TypeDef *port,char *msg, ...);
-  int scanConsole(char *msg,...);
-  char * Console_Return(char *s);
+void Console_Init(USART_TypeDef *port,int32_t baudrate);
+void printConsole(USART_TypeDef *port,char *msg, ...);
+int scanConsole(char *msg,...);
 
 
 
